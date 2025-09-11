@@ -18,7 +18,10 @@ public class FilterArrivalDateBeforeDeparture extends Flight implements Filters 
                 if (!this.getSegments().get(count).getArrivalDate().toLocalDate()
                         .isEqual(this.getSegments().get(count + 1).getDepartureDate()
                                 .toLocalDate())) {
-                    return true;
+                    if (this.getSegments().get(count).getArrivalDate().isBefore(this.getSegments().get(count + 1)
+                            .getDepartureDate())) {
+                        return true;
+                    }
                 }
             }
         }

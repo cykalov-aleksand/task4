@@ -5,6 +5,7 @@ import com.gridnine.testing.model.Flight;
 import com.gridnine.testing.model.Segment;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class FilterDepartureUpToCurrentTime extends Flight implements Filters {
@@ -15,14 +16,12 @@ public class FilterDepartureUpToCurrentTime extends Flight implements Filters {
     public boolean filter() {
         LocalDateTime dateTime = LocalDateTime.now();
         {
-
             for (Segment variable : this.getSegments()) {
-                if (variable.getDepartureDate().isBefore(dateTime)) {
+              if(variable.getDepartureDate().truncatedTo(ChronoUnit.SECONDS).isBefore(dateTime.truncatedTo(ChronoUnit.SECONDS)))
                     return true;
                 }
             }
             return false;
         }
-    }
     }
 

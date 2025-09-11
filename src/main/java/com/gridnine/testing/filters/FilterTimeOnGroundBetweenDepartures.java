@@ -12,13 +12,13 @@ public class FilterTimeOnGroundBetweenDepartures extends Flight implements Filte
         super(segments);
 
     }
-
     @Override
     public boolean filter() {
         long interval = 0;
         if (this.getSegments().size() >= 2) {
             for (int count = 0; count < this.getSegments().size() - 1; count++) {
-                interval = interval + Duration.between(this.getSegments().get(count).getArrivalDate(), this.getSegments().get(count + 1).getDepartureDate()).getSeconds();
+                interval = interval + Duration.between(this.getSegments().get(count).getArrivalDate(),
+                        this.getSegments().get(count + 1).getDepartureDate()).getSeconds();
                 if (interval > 7200) {
                     return true;
                 }

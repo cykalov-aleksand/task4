@@ -1,9 +1,5 @@
 package com.gridnine.testing.model;
 
-
-
-import com.gridnine.testing.interfaces.Filters;
-
 import java.util.List;
 import java.util.stream.Collectors;
 /**

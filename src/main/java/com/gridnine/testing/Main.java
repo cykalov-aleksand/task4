@@ -3,13 +3,16 @@ package com.gridnine.testing;
 import com.gridnine.testing.filters.FilterArrivalDateBeforeDeparture;
 import com.gridnine.testing.filters.FilterDepartureUpToCurrentTime;
 import com.gridnine.testing.filters.FilterTimeOnGroundBetweenDepartures;
+import com.gridnine.testing.interfaces.Filters;
 import com.gridnine.testing.model.Flight;
+import com.gridnine.testing.service.Service;
 import com.gridnine.testing.testList.FlightBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
         List<Flight> flightList = FlightBuilder.createFlights();
         System.out.println("\nИсходный тестовый список");
@@ -34,5 +37,5 @@ public class Main {
                 System.out.println(variable);
             }
         }
-    }
+        }
 }

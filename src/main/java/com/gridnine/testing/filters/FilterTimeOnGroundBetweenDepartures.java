@@ -12,6 +12,7 @@ public class FilterTimeOnGroundBetweenDepartures extends Flight implements Filte
         super(segments);
 
     }
+
     @Override
     public boolean filter() {
         long interval = 0;

@@ -9,7 +9,7 @@ import com.gridnine.testing.testList.FlightBuilder;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
         List<Flight> flightList = FlightBuilder.createFlights();
         System.out.println("\nИсходный тестовый список");
@@ -34,5 +34,5 @@ public class Main {
                 System.out.println(variable);
             }
         }
-    }
+        }
 }

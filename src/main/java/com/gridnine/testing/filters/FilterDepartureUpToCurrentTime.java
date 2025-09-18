@@ -12,16 +12,17 @@ public class FilterDepartureUpToCurrentTime extends Flight implements Filters {
     public FilterDepartureUpToCurrentTime(List<Segment> segments) {
         super(segments);
     }
+
     @Override
     public boolean filter() {
         LocalDateTime dateTime = LocalDateTime.now();
         {
             for (Segment variable : this.getSegments()) {
-              if(variable.getDepartureDate().truncatedTo(ChronoUnit.SECONDS).isBefore(dateTime.truncatedTo(ChronoUnit.SECONDS)))
+                if (variable.getDepartureDate().truncatedTo(ChronoUnit.SECONDS).isBefore(dateTime.truncatedTo(ChronoUnit.SECONDS)))
                     return true;
-                }
             }
-            return false;
         }
+        return false;
     }
+}
 

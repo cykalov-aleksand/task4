@@ -1,7 +1,6 @@
 package com.gridnine.testing.testList;
 
 
-
 import com.gridnine.testing.model.Flight;
 import com.gridnine.testing.model.Segment;
 
@@ -15,26 +14,27 @@ import java.util.List;
  */
 
 public class FlightBuilder {
-     public static List<Flight> createFlights() {
+    public static List<Flight> createFlights() {
         LocalDateTime threeDaysFromNow = LocalDateTime.now().plusDays(3);
         return Arrays.asList(
-            //Обычный полет продолжительностью в два часа
-            createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2)),
-           //Обычный многосегментный полет
-            createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
-                threeDaysFromNow.plusHours(3), threeDaysFromNow.plusHours(5)),
-            //Рейс, вылетевший в прошлом
-            createFlight(threeDaysFromNow.minusDays(6), threeDaysFromNow),
-            //Рейс, который отправляется раньше, чем прибывает
-            createFlight(threeDaysFromNow, threeDaysFromNow.minusHours(6)),
-            //Рейс с наземным временем полета более двух часов
-            createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
-                threeDaysFromNow.plusHours(5), threeDaysFromNow.plusHours(6)),
-           //Еще один рейс с более чем двухчасовым наземным временем полета
-            createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
-                threeDaysFromNow.plusHours(3), threeDaysFromNow.plusHours(4),
-                threeDaysFromNow.plusHours(6), threeDaysFromNow.plusHours(7)));
+                //Обычный полет продолжительностью в два часа
+                createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2)),
+                //Обычный многосегментный полет
+                createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
+                        threeDaysFromNow.plusHours(3), threeDaysFromNow.plusHours(5)),
+                //Рейс, вылетевший в прошлом
+                createFlight(threeDaysFromNow.minusDays(6), threeDaysFromNow),
+                //Рейс, который отправляется раньше, чем прибывает
+                createFlight(threeDaysFromNow, threeDaysFromNow.minusHours(6)),
+                //Рейс с наземным временем полета более двух часов
+                createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
+                        threeDaysFromNow.plusHours(5), threeDaysFromNow.plusHours(6)),
+                //Еще один рейс с более чем двухчасовым наземным временем полета
+                createFlight(threeDaysFromNow, threeDaysFromNow.plusHours(2),
+                        threeDaysFromNow.plusHours(3), threeDaysFromNow.plusHours(4),
+                        threeDaysFromNow.plusHours(6), threeDaysFromNow.plusHours(7)));
     }
+
     static Flight createFlight(final LocalDateTime... dates) {
         if ((dates.length % 2) != 0) {
             throw new IllegalArgumentException(

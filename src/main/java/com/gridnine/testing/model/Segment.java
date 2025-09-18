@@ -3,6 +3,7 @@ package com.gridnine.testing.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
+
 /**
  * Bean that represents a flight segment.
  */
@@ -16,7 +17,7 @@ public class Segment {
         arrivalDate = Objects.requireNonNull(arr);
     }
 
-   public LocalDateTime getDepartureDate() {
+    public LocalDateTime getDepartureDate() {
         return departureDate;
     }
 

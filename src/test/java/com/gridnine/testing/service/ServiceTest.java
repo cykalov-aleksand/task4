@@ -23,21 +23,18 @@ import static org.mockito.ArgumentMatchers.any;
 
 @ExtendWith(MockitoExtension.class)
 public class ServiceTest {
-    @Mock
+   // @Mock
     FilterDepartureUpToCurrentTime filterDepartureUpToCurrentTime;
-@Mock
+//@Mock
 Service listFilter;
     @Test
     public void filterFalseTest(){
         List<Segment>flight=List.of(new Segment(LocalDateTime.now().plusSeconds(1),LocalDateTime.now().plusHours(2)),
                 new Segment(LocalDateTime.now().minusSeconds(0),LocalDateTime.now().plusHours(2)));
         FilterDepartureUpToCurrentTime filterObject=new FilterDepartureUpToCurrentTime(flight);
-
-        //listFilter= (Service) List.of(filterObject);
-       // Mockito.when(filterObject.filter()).thenReturn(false);
-       // listFilter= (Service) List.of((filterObject));
-       // Mockito.when((filterObject.filter())).thenReturn(false);
-       listFilter= new Service(List.of(filterObject));
+        listFilter= new Service(List.of(filterObject));
+        Mockito.when(listFilter.getFilters().get(0).filter()).thenReturn(true);
+    //    Mockito.when(listFilter.getFilters().get(1).filter()).thenReturn(false);
        int ii=listFilter.filter().size();
         System.out.println(ii);
         Assertions.assertEquals(ii,1);

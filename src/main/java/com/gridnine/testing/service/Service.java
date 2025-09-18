@@ -19,10 +19,9 @@ public class Service {
 
     public List<Flight> filter(){
         List<Flight>result=new ArrayList<>();
-        for(int i=0;i<this.filters.size();i++){
-        //for (Filters variable:filters){
-            if(!filters.get(i).filter()){
-                result.add((Flight) filters.get(i));
+       for (Filters variable:filters){
+            if(!variable.filter()){
+                result.add((Flight) variable);
             }
         }
         return result;
